@@ -1,0 +1,7 @@
+.base-btn-icon {
+  @apply rounded-full w-16 h-16 relative shadow-xl hover:-translate-y-1 duration-300;
+
+  .btn {
+    @apply flex w-full h-full items-center justify-center;
+  }
+}

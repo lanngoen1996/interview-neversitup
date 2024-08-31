@@ -5,7 +5,7 @@ const message = {
 }
 
 // Store data 
-const store = useLayoutStore()
+const layoutStore = useLayoutStore()
 
 </script>
 
@@ -14,7 +14,7 @@ const store = useLayoutStore()
     <UIcon 
       name="i-heroicons-outline-bars-3-bottom-right" 
       class="h-8 w-8 absolute right-5" 
-      @click="() => store.toggle()" 
+      @click="() => layoutStore.toggleToDone()" 
     />
     <p class="title">{{ message.title }}</p>
   </div>

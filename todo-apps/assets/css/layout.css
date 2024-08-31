@@ -1,9 +1,9 @@
 .container-main {
-  @apply max-w-sm mx-auto bg-slate-50 h-screen relative overflow-hidden;
+  @apply max-w-md mx-auto bg-slate-50 h-screen relative overflow-hidden;
 }
 
 .main {
-  @apply px-5 pt-5 overflow-y-scroll;
+  @apply px-5 pt-5 h-full overflow-scroll;
 }
 
 .todo-nav {
@@ -12,4 +12,8 @@
 
 .sidebar {
   @apply bg-slate-50 h-screen absolute top-0 w-full right-0 duration-500;
+}
+
+.footer {
+  @apply absolute bottom-0 h-40 w-full px-6 bg-gradient-to-t from-black/20 to-black/0;
 }

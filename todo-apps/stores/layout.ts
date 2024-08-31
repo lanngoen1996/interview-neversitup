@@ -1,10 +1,10 @@
 export const useLayoutStore = defineStore('layoutStore', {
   state: () => ({
-    visible: false
+    done: false
   }),
   actions: {
-    toggle() {
-      this.visible = !this.visible
+    toggleToDone() {
+      this.done = !this.done
     }
   }
 })
