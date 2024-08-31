@@ -140,7 +140,10 @@ const date = ref(dayjs().toDate())
       </div>
     </div>
     <div class="px-5 mt-40">
-      <button type="button" class="bg-gradient-to-r from-blue-700 to-sky-400 px-12 py-2 text-white rounded-full">Add</button>
+      <button 
+        type="button" 
+        class="bg-gradient-to-r from-blue-700 to-sky-400 px-12 py-2 text-white rounded-full hover:-translate-y-0.5 hover:-translate-x-0.5 hover:shadow-lg duration-200"
+      >Add</button>
     </div>
   </div>
 </template>
