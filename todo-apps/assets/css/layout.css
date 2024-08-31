@@ -1,3 +1,11 @@
 .container-main {
-  @apply max-w-[425px] mx-auto;
+  @apply max-w-sm mx-auto bg-slate-50 h-screen;
+}
+
+.main {
+  @apply px-5 pt-5;
+}
+
+.todo-nav {
+  @apply relative h-16 flex justify-center items-center shadow-2xl;
 }

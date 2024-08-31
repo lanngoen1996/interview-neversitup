@@ -1,5 +1,8 @@
 <template>
   <div class="container-main">
-    <slot />
+    <TodoNav />
+    <div class="main">
+      <slot />
+    </div>
   </div>
 </template>

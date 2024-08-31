@@ -12,12 +12,14 @@
     "lint:fix": "eslint . --fix"
   },
   "dependencies": {
+    "@nuxt/ui": "^2.18.4",
     "@nuxtjs/tailwindcss": "^6.12.1",
     "nuxt": "^3.13.0",
     "vue": "latest"
   },
   "devDependencies": {
     "@nuxt/eslint": "^0.5.4",
+    "@nuxtjs/color-mode": "^3.4.4",
     "autoprefixer": "^10.4.20",
     "eslint": "^9.9.1",
     "postcss": "^8.4.41",
