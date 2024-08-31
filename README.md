@@ -21,6 +21,7 @@ This repo for interview neversitup only can't be use in publish
 
 ##### Unit 1 Structure project (MVC)
 
+```
 .
 ├── .vscode
 │   ├── setting.json
@@ -75,3 +76,4 @@ This repo for interview neversitup only can't be use in publish
 ├── .gitlab-ci.yml
 ├── ....
 └── README.md
+```
