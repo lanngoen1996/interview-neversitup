@@ -33,6 +33,12 @@ const message = {
           color: 'bg-gradient-to-r from-stone-900 to-gray-500'
         }
       ]
+    },
+    name: {
+      title: 'Name'
+    },
+    date: {
+      title: 'Date'
     }
   }
 }
@@ -70,7 +76,19 @@ const layoutStore = useLayoutStore()
       </div>
       <div class="mt-5">
         <p class="base text-gray-500 font-semibold">
-          {{ message.form.icon.title }}
+          {{ message.form.name.title }}
+        </p>
+        <input placeholder="Task name..." type="text" class="mt-3 w-full h-10 border-b-2 border-indigo-200 border-b-indigo-500 rounded-t-md focus:outline-none text-lg px-2">
+      </div>
+      <div class="mt-5">
+        <p class="base text-gray-500 font-semibold">
+          {{ message.form.name.title }}
+        </p>
+        <textarea rows="5" class="w-full border-2 rounded mt-3 p-2 focus:outline-none" />
+      </div>
+      <div class="mt-5">
+        <p class="base text-gray-500 font-semibold">
+          {{ message.form.date.title }}
         </p>
       </div>
     </div>
