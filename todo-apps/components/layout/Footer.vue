@@ -1,5 +1,7 @@
 <script setup lang="ts">
 import BtnIcon from '~/components/button/BtnIcon.vue'
+
+const layoutStore = useLayoutStore()
 </script>
 
 <template>
@@ -17,7 +19,11 @@ import BtnIcon from '~/components/button/BtnIcon.vue'
           class="h-7 w-7 text-orange-600"
         />
       </BtnIcon>
-      <BtnIcon :bg="'bg-gradient-to-r from-blue-500 to-indigo-500'" :position="'mt-4'">
+      <BtnIcon 
+        :bg="'bg-gradient-to-r from-blue-500 to-indigo-500'" 
+        :position="'mt-4'" 
+        @click="() => layoutStore.toggleForm()"
+      >
         <UIcon 
           name="i-heroicons-outline-plus" 
           class="h-7 w-7 text-white"

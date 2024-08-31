@@ -7,7 +7,7 @@
 }
 
 .todo-nav {
-  @apply relative h-16 flex justify-center items-center shadow-2xl;
+  @apply relative h-16 flex justify-center items-center;
 }
 
 .sidebar {

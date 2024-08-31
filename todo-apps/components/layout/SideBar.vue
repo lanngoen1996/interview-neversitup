@@ -1,4 +1,9 @@
 <script setup lang="ts">
+// Message page
+const message = {
+  title: 'to done'
+}
+
 // Store data 
 const layoutStore = useLayoutStore()
 
@@ -12,6 +17,7 @@ const layoutStore = useLayoutStore()
         class="h-8 w-8 absolute left-5" 
         @click="() => layoutStore.toggleToDone()" 
       />
+      <p class="title">{{ message.title }}</p>
     </div>
   </div>
 </template>
