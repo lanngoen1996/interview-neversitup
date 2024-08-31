@@ -1,5 +1,9 @@
 <script setup lang="ts">
+import { ref } from 'vue'
+import { DatePicker } from 'v-calendar'
+import 'v-calendar/dist/style.css'
 import BtnIconMini from '../button/BtnIconMini.vue'
+import dayjs from 'dayjs'
 
 // Message page
 const message = {
@@ -35,16 +39,28 @@ const message = {
       ]
     },
     name: {
-      title: 'Name'
+      title: 'Name',
+      placeholder: 'Task name ...'
     },
+    description: {
+      title: 'Description',
+      placeholder: 'Description ...'
+    }, 
     date: {
-      title: 'Date'
+      title: 'Date',
+      placeholder: '01 - September - 2000'
+    },
+    time: {
+      title: 'Time',
+      placeholder: '00 : 00 AM'
     }
   }
 }
 
 // Store layout
 const layoutStore = useLayoutStore()
+
+const date = ref(dayjs().toDate())
 
 </script>
 
@@ -74,23 +90,57 @@ const layoutStore = useLayoutStore()
           </div>
         </div>
       </div>
-      <div class="mt-5">
+      <div class="mt-10">
         <p class="base text-gray-500 font-semibold">
           {{ message.form.name.title }}
         </p>
-        <input placeholder="Task name..." type="text" class="mt-3 w-full h-10 border-b-2 border-indigo-200 border-b-indigo-500 rounded-t-md focus:outline-none text-lg px-2">
+        <input 
+          :placeholder="message.form.name.placeholder" 
+          type="text"
+          class="mt-3 w-full h-10 border-b-2 border-indigo-200 border-b-indigo-500 rounded-t-md focus:outline-none text-md px-2"
+        >
       </div>
       <div class="mt-5">
         <p class="base text-gray-500 font-semibold">
-          {{ message.form.name.title }}
+          {{ message.form.description.title }}
         </p>
-        <textarea rows="5" class="w-full border-2 rounded mt-3 p-2 focus:outline-none" />
+        <textarea :placeholder="message.form.description.placeholder" rows="5" class="w-full border-2 rounded mt-3 p-2 focus:outline-none" />
       </div>
       <div class="mt-5">
         <p class="base text-gray-500 font-semibold">
           {{ message.form.date.title }}
         </p>
+        <UPopover :popper="{ placement: 'bottom-start' }">
+          <input 
+            :placeholder="message.form.date.placeholder" 
+            type="text" 
+            class="mt-3 w-full h-10 border-b-2 border-indigo-200 border-b-indigo-500 rounded-t-md focus:outline-none text-md px-2"
+            :value="`${dayjs(date).format('DD - MMMM - YYYY')}`"
+          >
+          <template #panel="{ close }">
+            <DatePicker v-model="date" mode="date"  @close="close" />
+          </template>
+        </UPopover>
       </div>
+      <div class="mt-5">
+        <p class="base text-gray-500 font-semibold">
+          {{ message.form.time.title }}
+        </p>
+        <UPopover :popper="{ placement: 'bottom-start' }">
+          <input 
+            :placeholder="message.form.time.placeholder" 
+            type="text" 
+            class="mt-3 w-full h-10 border-b-2 border-indigo-200 border-b-indigo-500 rounded-t-md focus:outline-none text-md px-2"
+            :value="`${dayjs(date).format('hh : mm A')}`"
+          >
+          <template #panel="{ close }">
+            <DatePicker v-model="date" mode="time"  @close="close" />
+          </template>
+        </UPopover>
+      </div>
+    </div>
+    <div class="px-5 mt-40">
+      <button type="button" class="bg-gradient-to-r from-blue-700 to-sky-400 px-12 py-2 text-white rounded-full">Add</button>
     </div>
   </div>
 </template>
