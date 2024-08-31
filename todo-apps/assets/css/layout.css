@@ -17,3 +17,9 @@
 .footer {
   @apply absolute bottom-0 h-40 w-full px-6 bg-gradient-to-t from-black/20 to-black/0;
 }
+
+.overlay {
+  @apply absolute w-full h-full top-0 left-0 right-0 bottom-0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 2;
+}
