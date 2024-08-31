@@ -4,11 +4,15 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   modules: [
     '@nuxt/eslint',
+    '@pinia/nuxt',
     '@nuxt/ui',
     '@nuxtjs/tailwindcss',
-    '@nuxtjs/color-mode'
+    '@nuxtjs/color-mode',
   ],
   colorMode: {
     preference: 'light'
-  }
+  },
+  pinia: {
+    storesDirs: ['./stores/**'],
+  },
 })

@@ -1,11 +1,15 @@
 .container-main {
-  @apply max-w-sm mx-auto bg-slate-50 h-screen;
+  @apply max-w-sm mx-auto bg-slate-50 h-screen relative overflow-hidden;
 }
 
 .main {
-  @apply px-5 pt-5;
+  @apply px-5 pt-5 overflow-y-scroll;
 }
 
 .todo-nav {
   @apply relative h-16 flex justify-center items-center shadow-2xl;
+}
+
+.sidebar {
+  @apply bg-slate-50 h-screen absolute top-0 w-full right-0 duration-500;
 }
