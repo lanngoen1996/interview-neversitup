@@ -1,9 +1,10 @@
 export default defineNuxtPlugin((nuxtApp) => {
 
   const { session } = useUserSession()
+  const config = useRuntimeConfig()
 
   const api = $fetch.create({
-    baseURL: process.env.END_POINT,
+    baseURL: config.public.apiBase,
     onRequest({ options }) {
       if (session.value.token) {
         const headers = options.headers ||= {}

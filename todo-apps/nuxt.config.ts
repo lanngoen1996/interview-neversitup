@@ -16,4 +16,10 @@ export default defineNuxtConfig({
   pinia: {
     storesDirs: ['./stores/**'],
   },
+  runtimeConfig: {
+    sessionPassword: process.env.NUXT_SESSION_PASSWORD || '',
+    public: {
+      apiBase: process.env.NUXT_PUBLIC_API_BASE || '',
+    }
+  },
 })

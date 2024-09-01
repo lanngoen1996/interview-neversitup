@@ -7,9 +7,10 @@ type AuthResponse = {
 
 export default defineEventHandler(async (event) => {
   const body = await readBody<LoginForm>(event)
+  const config = useRuntimeConfig()
 
   try {
-    const login = await $fetch<AuthResponse>(`${process.env.END_POINT}/auth/login`, {
+    const login = await $fetch<AuthResponse>(`${config.public.apiBase}/auth/login`, {
       method: 'POST',
       body
     }).then((resp): AuthToken => {
