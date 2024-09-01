@@ -3,6 +3,8 @@ definePageMeta({
   layout: 'blank'
 })
 
+const router = useRouter()
+
 const message = {
   title: 'Login to interviews',
   username: {
@@ -28,6 +30,7 @@ const onSubmit = async () => {
       method: 'POST',
       body: loginForm.value,
     })
+    router.push('/')
   } catch (error) {
     console.error(error)
   }
