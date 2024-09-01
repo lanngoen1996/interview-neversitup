@@ -10,7 +10,7 @@ This repo for interview neversitup only can't be use in publish
 - [x] Backend Unit 1
 - [x] Backend Unit 2 (Permutations)
 - [x] Backend Unit 3 (Find the odd int)
-- [ ] Backend Unit 4 (Count smiley)
+- [x] Backend Unit 4 (Count smiley)
 
 #### Section One [Frontend (Vue.js)] (todo-apps)
 
