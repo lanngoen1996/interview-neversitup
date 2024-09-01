@@ -6,9 +6,9 @@ This repo for interview neversitup only can't be use in publish
 
 ### Check list task
 
-- [ ] Frontend
+- [x] Frontend
 - [x] Backend Unit 1
-- [ ] Backend Unit 2
+- [x] Backend Unit 2
 - [ ] Backend Unit 3
 - [ ] Backend Unit 4
 
