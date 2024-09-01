@@ -3,16 +3,16 @@ export default defineNuxtPlugin((nuxtApp) => {
   const { session } = useUserSession()
 
   const api = $fetch.create({
-    baseURL: 'https://api.nuxt.com',
+    baseURL: process.env.END_POINT,
     onRequest({ options }) {
-      if (session.value.user.too) {
+      if (session.value.token) {
         const headers = options.headers ||= {}
         if (Array.isArray(headers)) {
-          headers.push(['Authorization', `Bearer ${session.value?.token}`])
+          headers.push(['Authorization', `Bearer ${session.value.token}`])
         } else if (headers instanceof Headers) {
-          headers.set('Authorization', `Bearer ${session.value?.token}`)
+          headers.set('Authorization', `Bearer ${session.value.token}`)
         } else {
-          headers.Authorization = `Bearer ${session.value?.token}`
+          headers.Authorization = `Bearer ${session.value.token}`
         }
       }
     },

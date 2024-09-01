@@ -9,7 +9,7 @@ export default defineEventHandler(async (event) => {
   const body = await readBody<LoginForm>(event)
 
   try {
-    const login = await $fetch<AuthResponse>('https://candidate-assignment.neversitup.com/auth/login', {
+    const login = await $fetch<AuthResponse>(`${process.env.END_POINT}/auth/login`, {
       method: 'POST',
       body
     }).then((resp): AuthToken => {
