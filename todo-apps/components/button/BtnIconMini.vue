@@ -6,7 +6,8 @@ defineProps({
   },
   position: {
     type: String,
-    required: true,
+    default: '',
+    required: false,
   }
 })
 

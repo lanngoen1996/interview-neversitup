@@ -2,6 +2,7 @@
 @import "./font.css";
 @import "./button.css";
 @import "./form.css";
+@import "./card.css";
 
 @tailwind base;
 @tailwind components;
