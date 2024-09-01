@@ -27,9 +27,11 @@ const display = ref({
   description: ''
 })
 
-const onModal = (item: TodoSanity) => {
+const onModal = (item?: TodoSanity) => {
   isOpen.value = !isOpen.value
-  display.value = item
+  if (item) {
+    display.value = item
+  }
 }
 
 </script>
@@ -59,13 +61,42 @@ const onModal = (item: TodoSanity) => {
     <UModal
       v-model="isOpen" 
       :ui="{
-        base: 'w-[385px]',
+        base: 'w-[325px]',
         container: 'flex min-h-full items-end sm:items-start justify-center text-center'
       }
     ">
-      <div class="p-4">
-        <p class="title mb-3">{{ display.title }}</p>
-        <span>{{ display.description }}</span>
+      <div class="text-center">
+        <div class="bg-slate-100 p-4">
+          <div class="flex justify-center">
+            <BtnIconMini 
+              bg="bg-gradient-to-r from-purple-500 to-pink-500" 
+              class="mr-2 mt-3" 
+            > 
+              <UIcon 
+                name="i-fluent-emoji-high-contrast-cat-face" 
+                class="h-7 w-7 text-white"
+              />
+            </BtnIconMini>
+          </div>
+          <p class="title mb-3 mt-5">{{ display.title }}</p>
+        </div>
+        <div class="p-4">
+          <div>
+            <p class="text-sm">Description</p>
+          </div>
+          <div class="text-left mt-4 text-gray-500">
+            <span>{{ display.description }}</span>
+          </div>
+        </div>
+        <div class="px-4 mb-5 mx-5 mt-5">
+          <button 
+            type="submit"
+            class="w-full bg-gradient-to-r from-blue-700 to-sky-400 px-12 py-2 text-white rounded-full hover:-translate-y-0.5 hover:shadow-lg duration-200 outline-none"
+            @click="() => onModal()"
+            >
+            Done
+          </button>
+        </div>
       </div>
     </UModal>
   </div>

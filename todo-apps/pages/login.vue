@@ -1,34 +1,43 @@
 <script setup lang="ts">
+import { object, string } from 'yup'
+
 definePageMeta({
   layout: 'blank'
 })
 
 const router = useRouter()
 
+const schema = object({
+  username: string().required('Required'),
+  password: string().min(8, 'Must be at least 8 characters').required('Required')
+})
+
 const message = {
   title: 'Login to interviews',
   username: {
+    name: 'username',
     label: 'Username',
     placeholder: 'Username',
-    description: 'username: admin'
+    description: 'username: nlanngoen'
   },
   password: {
+    name: 'password',
     label: 'Password',
     placeholder: 'Password',
-    description: 'password: admin'
+    description: 'password: nlanngoen'
   }
 }
 
-const loginForm = ref({
-  username: 'nlanngoen',
-  password: 'nlanngoen'
-}) 
+const state = reactive({
+  username: undefined,
+  password: undefined
+})
 
-const onSubmit = async () => {
+async function onSubmit () {
   try {
     await $fetch('/api/auth/login', {
       method: 'POST',
-      body: loginForm.value,
+      body: state,
     })
     router.push('/')
   } catch (error) {
@@ -36,44 +45,41 @@ const onSubmit = async () => {
   }
 }
 
+const form = {
+  base: 'mt-3 w-full h-10 border-b-2 border-indigo-200 border-b-indigo-500 rounded-t-md focus:outline-none text-md px-2 !rounded-b-none !bg-white'
+}
+
 </script>
 
 <template>
   <div class="w-full h-full">
     <div class="flex justify-center items-center h-full">
-      <form class="p-5 rounded-md shadow-md bg-slate-100 w-full" @submit.prevent="onSubmit">
+      <UForm :schema="schema" :state="state" class="space-y-4 p-5 rounded-md shadow-md bg-slate-100 w-full" @submit.prevent="onSubmit">
         <div class="text-center">
           <h1 class="title">{{ message.title }}</h1>
         </div>
-        <div class="mt-5">
-          <p>
-            {{ message.username.label }}
-          </p>
-          <input 
-            v-model="loginForm.username"
+        <UFormGroup :label="message.username.label" :name="message.username.name">
+          <UInput
+            v-model="state.username" 
             :placeholder="message.username.placeholder"
-            name="username"
-            required
-            type="text" 
-            class="mt-3 w-full h-10 border-b-2 border-indigo-200 border-b-indigo-500 rounded-t-md focus:outline-none text-md px-2"
-          >
-          <span class="text-xs text-gray-400">{{ message.username.description }}</span>
-        </div>
-        <div class="mt-5">
-          <p>
-            {{ message.password.label }}
-          </p>
-          <input 
-            v-model="loginForm.password"
-            :placeholder="message.password.placeholder"
-            required
-            name="password"
+            :ui="form"
+            variant="none"
+          />
+        </UFormGroup>
+        <span class="text-xs text-gray-400">{{ message.username.description }}</span>
+
+        <UFormGroup :label="message.password.label" :name="message.password.name">
+          <UInput 
+            v-model="state.password" 
+            variant="none" 
+            :ui="form" 
             type="password" 
-            class="mt-3 w-full h-10 border-b-2 border-indigo-200 border-b-indigo-500 rounded-t-md focus:outline-none text-md px-2"
-          >
-          <span class="text-xs text-gray-400">{{ message.password.description }}</span>
-        </div>
-        <div class="mt-6">
+            :placeholder="message.password.placeholder"
+          />
+        </UFormGroup>
+        <span class="text-xs text-gray-400">{{ message.password.description }}</span>
+
+        <div class="pt-4">
           <button 
             type="submit"
             class="w-full bg-gradient-to-r from-blue-700 to-sky-400 px-12 py-2 text-white rounded-full hover:-translate-y-0.5 hover:shadow-lg duration-200"
@@ -81,7 +87,7 @@ const onSubmit = async () => {
             Login
           </button>
         </div>
-      </form>
+      </UForm>
     </div>
   </div>
 </template>
