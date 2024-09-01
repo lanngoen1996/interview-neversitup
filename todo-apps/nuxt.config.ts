@@ -8,6 +8,7 @@ export default defineNuxtConfig({
     '@nuxt/ui',
     '@nuxtjs/tailwindcss',
     '@nuxtjs/color-mode',
+    'nuxt-auth-utils',
   ],
   colorMode: {
     preference: 'light'

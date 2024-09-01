@@ -11,11 +11,11 @@
 }
 
 .sidebar {
-  @apply bg-slate-50 h-screen absolute top-0 w-full right-0 duration-500;
+  @apply bg-slate-50 h-screen absolute top-0 w-full right-0 duration-500 z-10;
 }
 
 .footer {
-  @apply absolute bottom-0 h-40 w-full px-6 bg-gradient-to-t from-black/20 to-black/0;
+  @apply absolute bottom-0 h-40 w-full px-6 bg-gradient-to-t from-black/20 to-black/0 z-20;
 }
 
 .overlay {

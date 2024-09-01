@@ -17,14 +17,20 @@ const message = {
   }
 }
 
-const data = {
-  username: '',
-  password: ''
-}
+const loginForm = ref({
+  username: 'nlanngoen',
+  password: 'nlanngoen'
+}) 
 
-const onSubmit = (e: Event) => {
-  e.preventDefault()
-  console.log(data);
+const onSubmit = async () => {
+  try {
+    await $fetch('/api/auth/login', {
+      method: 'POST',
+      body: loginForm.value,
+    })
+  } catch (error) {
+    console.error(error)
+  }
 }
 
 </script>
@@ -32,7 +38,7 @@ const onSubmit = (e: Event) => {
 <template>
   <div class="w-full h-full">
     <div class="flex justify-center items-center h-full">
-      <form @submit="onSubmit" class="p-5 rounded-md shadow-md bg-slate-100 w-full">
+      <form class="p-5 rounded-md shadow-md bg-slate-100 w-full" @submit.prevent="onSubmit">
         <div class="text-center">
           <h1 class="title">{{ message.title }}</h1>
         </div>
@@ -41,7 +47,7 @@ const onSubmit = (e: Event) => {
             {{ message.username.label }}
           </p>
           <input 
-            v-model="data.username"
+            v-model="loginForm.username"
             :placeholder="message.username.placeholder"
             name="username"
             required
@@ -55,11 +61,11 @@ const onSubmit = (e: Event) => {
             {{ message.password.label }}
           </p>
           <input 
-            v-model="data.password"
+            v-model="loginForm.password"
             :placeholder="message.password.placeholder"
             required
             name="password"
-            type="text" 
+            type="password" 
             class="mt-3 w-full h-10 border-b-2 border-indigo-200 border-b-indigo-500 rounded-t-md focus:outline-none text-md px-2"
           >
           <span class="text-xs text-gray-400">{{ message.password.description }}</span>

@@ -65,7 +65,7 @@ const date = ref(dayjs().toDate())
 </script>
 
 <template>
-  <div class="todo-form z-10" :class="{'translate-x-full': !layoutStore.form, 'translate-x-0': layoutStore.form}">
+  <div class="todo-form" :class="{'translate-x-full': !layoutStore.form, 'translate-x-0': layoutStore.form}">
     <div class="todo-nav justify-start">
       <UIcon 
         name="i-heroicons-outline-x" 
